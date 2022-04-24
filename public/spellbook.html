@@ -1,0 +1,160 @@
+<!--
+  ***
+  Jessica May
+  2/25/22
+  Section AA, TA Max Bi
+
+  CP3: Allows a user to create a custom spellbook for their D&D character. User can search for
+  spells by name, level, or school, change the spellbook's border color, move spells between the
+  spellbook and library, and clear the contents of spellbook/library.
+  CP4: Users can create logins and characters within each login to save their spellbooks to.
+  ***
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="spellbook.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+    <link href="spellbook.css" rel="stylesheet">
+    <title>Spellbook Generator</title>
+  </head>
+  <body>
+    <main>
+      <!-- Heading -->
+      <img id="header-img" src="dnd_header_4.jpg" alt="Header image">
+      <h1>D&amp;D Spellbook Generator</h1>
+      <section id="text-container">
+        <p>
+          Welcome to your personalized spellbook for D&amp;D 5e! This page is intended to give
+          players an easy way to collect their spells in one place, letting everyone avoid the mess
+          that's individually screenshotting every spell your level 10 wizard has on hand.
+        </p>
+        <p>
+          <strong>Instructions:</strong> Search for spells by name, school, level, or class. They
+          will appear in the library section. To move a spell card between the library and your
+          spellbook, simply click it. This can all be done without an account; if you want to save
+          your spellbook, create a login. Each login can hold an unlimited number of characters,
+          each able to hold their own unique spellbook (including the border color of the spellbook
+          and the character's class-specific spellcasting information.)
+        </p>
+        <p>
+          Good luck in your campaign, and may the dice roll ever in your favor!
+        </p>
+        <h2 id="welcome" class="hidden">Welcome!</h2>
+      </section>
+      <!-- Login and characters list -->
+      <section id="login-container">
+        <h3>Log In</h3>
+        <section>
+          <div>
+            <div class="btn-div">
+              <label for="login-input">Log into existing account:</label>
+              <input type="text" id="login-input" name="login" required minlength="3">
+              <button id="login-save">Enter</button>
+            </div>
+            <div class="btn-div">
+              <label for="new-acc-input">Create new account:</label>
+              <input type="text" id="new-acc-input" name="new-account">
+              <button id="new-acc-save">Enter</button>
+            </div>
+            <p><em>Login requirements: Letters, numbers, and underscores only. No spaces.</em></p>
+            <p class="hidden" id="login-error-msg"></p>
+          </div>
+          <div id="char-div" class="hidden">
+            <div class="btn-div">
+              <label for="new-char-input">New character:</label>
+              <input type="text" id="new-char-input" name="new-char">
+              <button id="new-char-save">Enter</button>
+            </div>
+            <div id="char-btns">
+            </div>
+          </div>
+          <button id="delete-account" class="remover hidden">Delete Account</button>
+        </section>
+      </section>
+      <!-- Specific character info -->
+      <section id="character-container" class="hidden">
+        <h3>Character Name: Class</h3>
+        <section>
+          <button id="delete-character" class="remover">Delete Character</button>
+          <div class="btn-div">
+            <label for="char-class-input">Update character's class:</label>
+            <input type="text" id="char-class-input" name="char-class">
+            <button id="char-class-save">Enter</button>
+          </div>
+          <div class="btn-div">
+            <label for="color-input">Update spellbook border color:</label>
+            <input type="text" id="color-input" name="color">
+            <button id="color-save">Enter</button>
+            <p>
+              (Enter a basic color name <a href="https://www.w3schools.com/colors/colors_names.asp"
+              target="_blank" rel="noopener noreferrer">listed here</a> or a hex code with the #
+              included)
+            </p>
+          </div>
+        </section>
+        <section id="class-info-cont">
+        </section>
+        <p class="hidden" id="char-error-msg"></p>
+      </section>
+      <!-- Spell Search -->
+      <section id="search-container">
+        <h3>Search Spells</h3>
+        <p>
+          Note: Later versions will hopefully allow you to combine search fields, but currently only
+          one field works at a time!
+        </p>
+        <div class="btn-div">
+          <label for="name-input">Spell name:</label>
+          <input type="text" id="name-input" name="name">
+          <button id="name-save">Enter</button>
+        </div>
+        <div class="btn-div">
+          <label for="level-input">Level:</label>
+          <input type="number" id="level-input" name="level" min="0" max="9">
+          <button id="level-save">Enter</button>
+          <p>(For cantrips, enter 0)</p>
+        </div>
+        <div class="btn-div">
+          <label for="school-input">School:</label>
+          <input type="text" id="school-input" name="school">
+          <button id="school-save">Enter</button>
+        </div>
+        <div class="btn-div">
+          <label for="class-input">Class:</label>
+          <input type="text" id="class-input" name="school">
+          <button id="class-save">Enter</button>
+        </div>
+        <p class="hidden" id="spell-error-msg"></p>
+      </section>
+      <!-- Library -->
+      <section id="library">
+        <div id="lib-sect-header">
+          <button id="clear-library" class="remover">Clear Library</button>
+        </div>
+        <h2>Library</h2>
+        <div id="lib-card-cont">
+        </div>
+      </section>
+      <!-- Spellbook -->
+      <section id="spellbook">
+        <div id="spell-sect-header">
+          <button id="save-spellbook" class="save" disabled>Save to Character</button>
+          <div>
+            <p>Lock Spellbook:</p>
+            <label class="switch">
+              <input type="checkbox" id="lock-spellbook">
+              <div></div>
+            </label>
+          </div>
+          <button id="clear-spellbook" class="remover">Clear Spellbook</button>
+        </div>
+        <h2>Spellbook</h2>
+        <div id="spell-card-cont">
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

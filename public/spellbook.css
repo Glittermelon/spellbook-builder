@@ -1,0 +1,265 @@
+/* stylelint-disable property-no-vendor-prefix */
+/*
+  Jessica May
+  2/25/22
+  Section AA, TA Max Bi
+
+  Styles for spellbook.html. Covers the heading, login, character, library, and spellbook sections;
+  the spell cards and buttons; and the character buttons.
+*/
+
+#header-img {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Rowdies', cursive;
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 40pt;
+  margin: 20px 20px 5px;
+}
+
+h2 {
+  font-size: 30pt;
+  margin: 5px 0px;
+}
+
+h3 {
+  font-size: 25px;
+  margin: 10px;
+}
+
+strong {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ----------- Buttons ------------ */
+
+button {
+  height: min-content;
+}
+
+.btn-div {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  width: max-content;
+}
+
+.btn-div > p, .btn-div > label, .btn-div > input {
+  margin: auto 5px;
+}
+
+.btn-div > p {
+  height: min-content;
+  font-style: italic;
+}
+
+.save {
+  color: forestgreen;
+  background-color: white;
+  border: 2px outset forestgreen;
+}
+
+.save:disabled {
+  color: grey;
+  background-color: white;
+  border: 2px outset grey;
+}
+
+.remover {
+  color: red;
+  background-color: white;
+  border: 2px outset red;
+}
+
+.remover:disabled {
+  color: grey;
+  border: 2px outset grey;
+}
+
+/* ----------- SECTIONS ------------ */
+
+#text-container {
+  padding: 5px 20px;
+  font-size: 20px;
+}
+
+#login-container, #character-container, #search-container, #library, #spellbook {
+  padding: 10px;
+  margin: 15px;
+  border-radius: 15px;
+}
+
+#login-container, #character-container, #search-container {
+  background: white;
+  border: 4px solid black;
+}
+
+/* --- Login --- */
+
+#login-container > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+[id="char-div"] {
+  display: flex;
+  flex-direction: column;
+}
+
+#delete-account {
+  margin-top: 10px;
+}
+
+.character {
+  background-color: white;
+  font-size: 18px;
+  width: 50%;
+  margin: 5px 20px;
+}
+
+.char-selected {
+  background-color: grey;
+  color: white;
+}
+
+/* --- Character --- */
+
+[id='character-container'] {
+  display: flex;
+  flex-direction: column;
+}
+
+#delete-character {
+  float: right;
+}
+
+#character-container > p {
+  margin: 10px;
+}
+
+/* --- Library and Spellbook --- */
+
+#lib-sect-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#spellbook {
+  background: #fffceb;
+  border: 8px solid;
+  border-color: gold;
+}
+
+#spell-sect-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#spell-sect-header > div {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+#spell-sect-header > div > p {
+  margin: 0px;
+  margin-right: 10px;
+}
+
+#lib-card-cont, #spell-card-cont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.spell {
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px auto;
+  background: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px 8px;
+  height: auto;
+  width: 30%;
+}
+
+.spell > h3 {
+  font-size: 18px;
+}
+
+.spell > p {
+  font-size: 16px;
+  margin: 7px;
+}
+
+.unselected {
+  box-shadow: 6px 6px 5px grey;
+}
+
+/* --- Errors --- */
+
+#login-error-msg, #char-error-msg, #spell-error-msg {
+  font-style: italic;
+  color: red;
+}
+
+/* --- Keep at the bottom for cascading reasons!! --- */
+
+.hidden {
+  display: none;
+}
+
+/* --- Toggle --- */
+.switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+/**
+ * 1. Adjust this to size
+ */
+
+.switch {
+  display: inline-block;
+  font-size: 20px; /* 1 */
+  height: 1em;
+  width: 2em;
+  background: #BDB9A6;
+  border-radius: 1em;
+}
+
+.switch div {
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+  background: #FFF;
+  box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.switch input:checked + div {
+  background: black;
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
