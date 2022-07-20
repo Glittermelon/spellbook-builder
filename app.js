@@ -1,13 +1,3 @@
-/**
- * Jessica May
- * 2/25/22
- * Section AA, TA Max Bi
- *
- * Deals with saving accounts and their respective characters to a database. Allows the user to
- * create an account, create an unlimited number of characters per account, swap between accounts
- * and characters, and save a list of spells to the current character.
- */
-
 "use strict";
 
 const express = require("express");
@@ -51,6 +41,7 @@ app.get('/users', async function(req, res) {
       usernames.push(results[name]['username']);
     }
     res.send('User compilation successful.');
+    console.log('User compilation successful.');
   } catch (err) {
     res.status(500).send('Server error. User compilation failed.');
   }
@@ -333,5 +324,7 @@ async function saveCharLock(value) {
 }
 
 app.use(express.static('public'));
+app.use(express.static('public_html'));
 const PORT = process.env.PORT || 8000;
 app.listen(PORT);
+console.log('Server running');

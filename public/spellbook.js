@@ -1,14 +1,3 @@
-/*
- * Jessica May
- * 2/25/22
- * Section AA, TA Max Bi
- *
- * For spellbook.html. Works with the D&D API as well as our own local one. Gives functionality to
- * buttons, generates cards, and deals with errors/error messages. Allows user to create an account,
- * log in,create a character, choose a saved character, and save the spellbook's current state to
- * the currently selected character.
- */
-
 "use strict";
 
 (function() {
